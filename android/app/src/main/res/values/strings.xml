@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Infinite Wiki</string>
+    <string name="title_activity_main">Infinite Wiki</string>
+    <string name="package_name">com.killerboss.infinitewiki</string>
+    <string name="custom_url_scheme">com.killerboss.infinitewiki</string>
+</resources>
