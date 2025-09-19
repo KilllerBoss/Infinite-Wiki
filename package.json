@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "android-build": "vite build && npx cap sync android"
+    "android-build": "vite build && npx cap sync android",
+    "start-local": "npm run build && cp sw.js dist/ && cp icon-*.png dist/ && cp manifest.json dist/ && npx serve -s dist -l 3000"
   },
   "dependencies": {
     "@capacitor/android": "^7.4.3",
@@ -20,6 +21,7 @@
     "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "^7.4.3",
     "@types/node": "^22.14.0",
+    "serve": "^14.2.5",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
