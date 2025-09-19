@@ -6,7 +6,7 @@
 import {GoogleGenAI} from '@google/genai';
 
 // API Key für lokale APK - für Produktionsumgebung sollte dies über sichere Konfiguration erfolgen
-const API_KEY = 'AIzaSyC8jgpKG7UL46_Amkz2F0PIvGqBKsdeV38'; // Direkt eingebetteter API-Key für lokale APK
+const API_KEY = 'AIzaSyCzsJbmtmrGh39en7VzRxSasp5e4KKx36Q'; // Direkt eingebetteter API-Key für lokale APK
 
 // This check is for development-time feedback.
 if (!API_KEY) {
