@@ -5,6 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Infinite Wiki</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/assets/manifest-OF1lYLgi.json" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Infinite Wiki" />
+    
+    <!-- Icons for different devices -->
+    <link rel="apple-touch-icon" href="/assets/icon-192-Byt54u-j.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192-Byt54u-j.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-192-Byt54u-j.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kosugi&display=swap" rel="stylesheet">
@@ -151,9 +163,24 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-D0u8glPR.js"></script>
+  <script type="module" crossorigin src="/assets/index-Div8IxA3.js"></script>
 </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registriert: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW Registrierung fehlgeschlagen: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

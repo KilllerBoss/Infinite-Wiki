@@ -5,15 +5,18 @@
 
 import {GoogleGenAI} from '@google/genai';
 
+// API Key für lokale APK - für Produktionsumgebung sollte dies über sichere Konfiguration erfolgen
+const API_KEY = 'AIzaSyC8jgpKG7UL46_Amkz2F0PIvGqBKsdeV38'; // Direkt eingebetteter API-Key für lokale APK
+
 // This check is for development-time feedback.
-if (!process.env.API_KEY) {
+if (!API_KEY) {
   console.error(
-    'API_KEY environment variable is not set. The application will not be able to connect to the Gemini API.',
+    'API_KEY ist nicht konfiguriert. Die Anwendung kann sich nicht mit der Gemini API verbinden.',
   );
 }
 
 // The "!" asserts API_KEY is non-null after the check.
-const ai = new GoogleGenAI({apiKey: process.env.API_KEY!});
+const ai = new GoogleGenAI({apiKey: API_KEY});
 const artModelName = 'gemini-2.5-flash';
 const textModelName = 'gemini-2.5-flash';
 /**
@@ -43,8 +46,8 @@ export interface AsciiArtData {
 export async function* streamDefinition(
   topic: string,
 ): AsyncGenerator<string, void, undefined> {
-  if (!process.env.API_KEY) {
-    yield 'Fehler: API_KEY ist nicht konfiguriert. Bitte überprüfen Sie Ihre Umgebungsvariablen, um fortzufahren.';
+  if (!API_KEY) {
+    yield 'Fehler: API_KEY ist nicht konfiguriert. Bitte überprüfen Sie Ihre Konfiguration, um fortzufahren.';
     return;
   }
 
@@ -80,7 +83,7 @@ export async function* streamDefinition(
  * @returns A promise that resolves to a single random word.
  */
 export async function getRandomWord(): Promise<string> {
-  if (!process.env.API_KEY) {
+  if (!API_KEY) {
     throw new Error('API_KEY ist nicht konfiguriert.');
   }
 
@@ -110,7 +113,7 @@ export async function getRandomWord(): Promise<string> {
  * @returns A promise that resolves to an object with art and optional text.
  */
 export async function generateAsciiArt(topic: string): Promise<AsciiArtData> {
-  if (!process.env.API_KEY) {
+  if (!API_KEY) {
     throw new Error('API_KEY ist nicht konfiguriert.');
   }
   
